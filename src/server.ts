@@ -25,7 +25,7 @@ dbConnect();
 
 // Middlewares
 app.use(cors({
-  "origin": ["*", "http://localhost:3000"],
+  "origin": ["*", "https://mediavaultct.vercel.app"],
   credentials: true,
   exposedHeaders: ['Content-Disposition'], // Expose headers if needed
 })); // Enable CORS for all routes
