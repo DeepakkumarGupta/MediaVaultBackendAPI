@@ -30,7 +30,7 @@ export const uploadMedia = async (req: Request, res: Response) => {
 
     const file = req.file;
     const userId = req.userId; // Set by API key middleware
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const baseUrl = `https://${req.get('host')}`;
     
     // Ensure user exists
     if (!userId) {

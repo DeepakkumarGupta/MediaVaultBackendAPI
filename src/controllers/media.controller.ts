@@ -49,7 +49,7 @@ export const uploadMedia = async (req: Request, res: Response) => {
     const file = req.file;
     // Casting userId to string to ensure it's the right type
     const userId = req.user._id.toString();
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const baseUrl = `https://${req.get('host')}`;
     
     // Determine media type
     const mediaType = file.mimetype.startsWith('image') ? 'images' : 
