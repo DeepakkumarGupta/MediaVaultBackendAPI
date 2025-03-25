@@ -81,7 +81,8 @@ export const getUserApiKeys = async (req: Request, res: Response) => {
         id: key._id,
         name: key.name,
         // Only show a masked version of the key for security
-        key: `${key.key.substring(0, 8)}...${key.key.substring(key.key.length - 4)}`,
+        // key: `${key.key.substring(0, 8)}...${key.key.substring(key.key.length - 4)}`,
+        key:key.key,
         createdAt: key.createdAt,
         lastUsed: key.lastUsed
       }))

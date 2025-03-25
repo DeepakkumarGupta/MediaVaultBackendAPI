@@ -24,11 +24,18 @@ const PORT = parseInt(process.env.PORT || '5001', 10);
 dbConnect();
 
 // Middlewares
-app.use(cors()); // Enable CORS for all routes
+app.use(cors({
+  "origin": ["*", "http://localhost:3000"],
+  credentials: true,
+  exposedHeaders: ['Content-Disposition'], // Expose headers if needed
+})); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded requests
 app.use(morgan('dev')); // HTTP request logger
-app.use(helmet({ contentSecurityPolicy: false })); // Security headers
+app.use(helmet({
+  contentSecurityPolicy: false,
+  crossOriginResourcePolicy: { policy: 'cross-origin' }
+})); // Security headers
 
 // Serve static files
 const uploadsPath = process.env.UPLOAD_PATH || './uploads';
